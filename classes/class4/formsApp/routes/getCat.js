@@ -1,4 +1,6 @@
 var path = require('path');
+var ingredient = require('./models/ingredientSchema');
+var burger = require('./models/burgerSchema');
 
 var routes = {};
 
@@ -13,16 +15,23 @@ var getCatImage = function(catParams, absolute) {
     case "grumpy":
       imageLocation = absolute ? path.join(__dirname, "../public/", grumpyCat) : grumpyCat;
       break;
-  }
+  };
   return imageLocation;
-}
+};
+
+var createBurger = function(req, res) {
+  var ingredients = burgerParams.ingredients;
+  var price = burgerParams.price;
+  res.send(Burger(req.query));
+};
+
 
 routes.getCatGET = function(req, res) {
   if (req.xhr) {
     res.send(getCatImage(req.query));
   } else {
     res.sendFile(getCatImage(req.query, true));
-  }
+  };
 };
 
 routes.getCatPOST = function(req, res) {

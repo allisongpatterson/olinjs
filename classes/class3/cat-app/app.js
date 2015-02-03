@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 
 var express = require('express');
 var index = require('./routes/index');
+var cats = require('./routes/cat-actions');
 var app = express();
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -20,5 +21,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.home);
+app.get('/cats', index.home);
+app.get('/cats/new', cats.new);
+app.get('/cats/delete/old', cats.delete);
+app.get('/cats/bycolor/black', cats.sort);
+app.get('/cats/byage', cats.sort);
 
 app.listen(3000);
