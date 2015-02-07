@@ -1,0 +1,16 @@
+<h1>Ingredients</h1>
+
+<h2>Currently in Stock:</h2>
+<button id="add-button">Add New</button>
+
+<ul>
+  {{#each ingredients}}
+  <li>{{name}}
+    <ul>
+      <button id="edit-button">Edit</button>
+      <button id="out-button">Out of Stock</button>
+      <li>price: {{price}}</li>
+    </ul>
+  </li>
+  {{/each}}
+</ul>
