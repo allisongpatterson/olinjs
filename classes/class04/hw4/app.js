@@ -1,3 +1,5 @@
+//References: http://jsbin.com/igoVoTEr/1/edit?html,css,js,output
+
 var express = require("express");
 var path = require("path");
 var logger = require("morgan");
@@ -28,6 +30,9 @@ app.get("/ingredients", function(req,res) {
   res.render("layouts/ingredients");
 });
 
+app.get("/form-test", function(req,res) {
+  res.render("layouts/add-edit");
+});
 
 app.listen(PORT, function() {
   console.log("App running on port:", PORT);

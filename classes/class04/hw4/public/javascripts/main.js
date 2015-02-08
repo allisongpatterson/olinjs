@@ -1,7 +1,8 @@
 var $form = $("#ajax-form");
 
 var onSuccess = function(data, status) {
-  var img = "<img src='"+data+"'/>";
+  var img = "<img src='"+"images/cat.jpg"+"'/>";
+  alert("EHRMAHGEHRD you clicked Submit!");
   $("#result").html(img);
 };
 
@@ -19,11 +20,20 @@ $form.submit(function(event) {
   //   mood: mood,
   //   name: name
   // }
-  $.get("getCat", formData)
+  $.get("ingredients", formData)
     .done(onSuccess)
     .error(onError);
 });
 
+
 $("#add-button").click(function() {
-    alert("EHRMAHGEHRD you clicked it!");
+    alert("EHRMAHGEHRD you clicked Add New!");
+});
+
+$("#edit-button").click(function() {
+    alert("EHRMAHGEHRD you clicked Edit!");
+});
+
+$("#out-button").click(function() {
+    alert("EHRMAHGEHRD you clicked Out of Stock!");
 });

@@ -5,12 +5,23 @@
 
 <ul>
   {{#each ingredients}}
-  <li>{{name}}
-    <ul>
+  <li>{{name}} -- {{price}}
       <button id="edit-button">Edit</button>
       <button id="out-button">Out of Stock</button>
-      <li>price: {{price}}</li>
-    </ul>
   </li>
   {{/each}}
+</ul>
+
+<ul>
+  <li>Tomato -- $0.25
+    <button id="edit-button">Edit</button>
+    <button id="out-button">Out of Stock</button>
+    <form id="ajax-form" action="main" method="POST">
+      Name: <input type="text" name="name" value="Tomato"/>
+      Price: <input type="text" name="price" value="$0.25"/>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="result">  
+    </div>
+  </li>
 </ul>
