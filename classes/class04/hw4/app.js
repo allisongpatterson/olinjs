@@ -34,8 +34,8 @@ app.get("/", function(req,res) {
 app.get("/ingredients", ingredientRoutes.list);
 
 
-
 app.post("/edit-ingredient", ingredientRoutes.editIngredient);
+app.post("/remove-ingredient", ingredientRoutes.removeIngredient);
 
 app.listen(PORT, function() {
   console.log("App running on port:", PORT);

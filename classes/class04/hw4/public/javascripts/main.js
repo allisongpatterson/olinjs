@@ -58,7 +58,7 @@ $(".edit-button").click(function() {
     // alert("EHRMAHGEHRD you clicked Edit!");
     // console.log($(this).parent().attr('id'));
     var editButton = this
-    var id = $(editButton).parent().attr('id')
+    var id = $(editButton).parent().attr('id');
     var name = prompt("New Ingredient Name:");
     var price = prompt("New Ingredient Price:");
     $.post("/edit-ingredient", {
@@ -68,15 +68,30 @@ $(".edit-button").click(function() {
     })
       .done(function(data, status) {
         console.log(data);
-        $(editButton).siblings("p").html(name+" -- "+price);
+        $(editButton).siblings("p").html(name+" -- $"+price);
       })
       .error(onError);
 });
 
 $(".out-button").click(function() {
-    alert("EHRMAHGEHRD you clicked Out of Stock!");
+    // alert("EHRMAHGEHRD you clicked Edit!");
+    // console.log($(this).parent().attr('id'));
+    var outButton = this
+    var id = $(outButton).parent().attr('id');
+    var name = $(outButton).parent().attr('name');
+    var price = $(outButton).price;
+    $.post("/remove-ingredient", {
+      name: name,
+      name: price,
+      id: id
+    })
+      .done(function(data, status) {
+        console.log("howdy",name,price,id);
+        console.log(data);
+        $(outButton).parent().remove();
+      })
+      .error(onError);
 });
-
 $(".submit-button").click(function() {
     alert("EHRMAHGEHRD you clicked Submit!");
 });

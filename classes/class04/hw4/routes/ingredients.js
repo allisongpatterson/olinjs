@@ -32,9 +32,21 @@ ingredients.editIngredient = function(req, res) {
   Ingredient.update({_id: id}, {name: newName, price: newPrice}, function(err){
     if (err) {
       console.log(err);
-      res.send("success!");
       //die
     } else {
+      res.send("success!");
+    }
+  });
+};
+
+ingredients.removeIngredient = function(req, res) {
+  var id = req.body.id;
+  Ingredient.remove({_id: id}, function(err){
+    if (err) {
+      console.log(err);
+      //die
+    } else {
+      console.log("quigley");
       res.send("success!");
     }
   })
@@ -44,7 +56,6 @@ ingredients.list = function(req, res) {
   Ingredient.find(function(err,data) {
   if (err) {
       console.log(err);
-      // res.send("success!");
       //die
     } else {
       res.render("layouts/ingredients",{ingredients: data});

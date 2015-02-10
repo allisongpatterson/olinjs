@@ -5,17 +5,9 @@
 
 <ul>
   {{#each ingredients}}
-  <li id="{{_id}}"><p>{{name}} -- {{price}} </p><div id="result"> </div>
+  <li id="{{_id}}"><p>{{name}} -- ${{price}}</p><div id="result"> </div>
       <button class="edit-button">Edit</button>
       <button class="out-button">Out of Stock</button>
   </li>
   {{/each}}
-  <li id="1"><p>Burger -- 1.25</p>
-      <button class="edit-button">Edit</button>
-      <button class="out-button">Out of Stock</button>
-  </li>
-  <li id="2"><p>Lettuce -- .35</p>
-      <button class="edit-button">Edit</button>
-      <button class="out-button">Out of Stock</button>
-  </li>
 </ul>
