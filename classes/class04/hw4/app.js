@@ -6,7 +6,9 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var exphbs  = require("express-handlebars");
+var mongoose = require("mongoose");
 
+var ingredientRoutes = require("./routes/ingredients");
 // var getCat = require("./routes/getCat");
 
 var app = express();
@@ -22,17 +24,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
+mongoose.connect(mongoURI);
+
 app.get("/", function(req,res) {
   res.render("home");
 });
 
-app.get("/ingredients", function(req,res) {
-  res.render("layouts/ingredients");
-});
+app.get("/ingredients", ingredientRoutes.list);
 
-app.get("/form-test", function(req,res) {
-  res.render("layouts/add-edit");
-});
+
+
+app.post("/edit-ingredient", ingredientRoutes.editIngredient);
 
 app.listen(PORT, function() {
   console.log("App running on port:", PORT);
