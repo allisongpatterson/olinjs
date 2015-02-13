@@ -1,0 +1,15 @@
+<h1>Twotter</h1>
+
+<body>
+  <form id="ajax-form">
+	<p>Twote</p>
+	<input type="text" value="Whee!"></input>
+	<button>></button>
+	<p>{{this}}</p>
+  </form>
+
+  {{#each twotes}}
+  <li id="{{_id}}">
+    <p>{{text}} -- {{author}}</p>
+  </li>
+  {{/each}}
