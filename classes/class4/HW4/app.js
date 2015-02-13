@@ -1,18 +1,18 @@
-//References: http://jsbin.com/igoVoTEr/1/edit?html,css,js,output
-
 var express = require("express");
 var path = require("path");
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
-var exphbs  = require("express-handlebars");
+var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 
-var twoteRoutes = require("./routes/twotes");
+var index = require("./routes/index");
+var cats = require("./routes/cats");
 
 var app = express();
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
+var mongoURI = process.env.MONGOURI;
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
@@ -23,17 +23,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
+app.get("/", index.home);
+app.get("/cats", cats.list);
+app.get("/cats/new", cats.new);
+app.get("/cats/bycolor/:color", cats.list);
+app.get("/cats/delete/old", cats.delete);
+
 mongoose.connect(mongoURI);
 
-app.get("/", function(req,res) {
-  res.render("home");
+app.listen(PORT, 3000) //function() {
+/*  console.log("Application running on port:", PORT);
 });
-
-app.get("/twotter", twoteRoutes.list);
-
-app.post("/new-twote", twoteRoutes.new);
-
-app.listen(PORT, function() {
-  console.log("App running on port:", PORT);
-});
+*/

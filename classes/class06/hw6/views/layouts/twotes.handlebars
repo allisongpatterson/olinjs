@@ -4,12 +4,13 @@
   <form id="ajax-form">
 	<p>Twote</p>
 	<input type="text" value="Whee!"></input>
-	<button>></button>
+	<input type="submit" class="submit" value=">"></input>
 	<p>{{this}}</p>
   </form>
 
   {{#each twotes}}
-  <li id="{{_id}}">
-    <p>{{text}} -- {{author}}</p>
-  </li>
+    <id="{{_id}}">
+    <p>"{{text}}" -- {{author}}</p>
   {{/each}}
+
+  <div id="result"></div>

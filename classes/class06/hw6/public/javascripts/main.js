@@ -25,20 +25,20 @@ $form.submit(function(event) {
     text: text
   }
  
-  $.get("twotes", formData)
+  $.get("new-twote", formData)
     .done(onSuccess)
     .error(onError);
 });
 
 
-$(".add-button").click(function() {
+$(".submit").click(function() {
     alert("EHRMAHGEHRD you clicked Add New!");
     var addButton = this;
-    var name = prompt("New Ingredient Name:");
-    var price = prompt("New Ingredient Price:");
-    $.post("/new-ingredient", {
-      name: name,
-      price: price,
+    var author = prompt("hey");
+    var text = prompt("yo");
+    $.post("/new-twote", {
+      author: author,
+      text: text,
       id: id
     })
       .done(onSuccess)

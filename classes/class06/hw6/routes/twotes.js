@@ -5,7 +5,7 @@ var Twote = require(path.join(__dirname,"../models/twoteModel"));
 var twotes = {};
 
 twotes.new = function(req, res) {
-  var author = req.body.author;
+  var author = "Allison";
   var text = req.body.text;
   var newTwote = new Twote({author: author, text: text});
   newTwote.save(function (err) {
