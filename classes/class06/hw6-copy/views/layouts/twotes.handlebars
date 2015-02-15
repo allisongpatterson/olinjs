@@ -1,0 +1,22 @@
+<h1>Twotter</h1>
+
+<body>
+  <div id="currUser"></div>
+
+  <form id="post-twote">
+  <p>Twote</p>
+  <input type="text" class="twote-text"></input>
+  <input type="text" class="twote-author"></input>
+  <input type="submit" class="submit" value=">"></input>
+  <p>{{this}}</p>
+  </form>
+
+  {{#each twotes}}
+<div id="result">
+    <form class="twote" id={{this._id}} method="POST">
+      <p>"{{this.text}}" - {{this.author}}</p>
+      <input type="button" class="edit-button" action="edit-twote" value="Edit">
+      <input type="button" class="delete-button" value="Delete">
+    </form>
+  {{/each}}
+</div>
