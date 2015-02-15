@@ -3,12 +3,11 @@
 <body>
   <div id="currUser"></div>
 
-  <form id="post-twote">
+  <form id="post-twote" method="POST">
   <p>Twote</p>
-  <input type="text" class="twote-text"></input>
-  <input type="text" class="twote-author"></input>
-  <input type="submit" class="submit" value=">"></input>
-  <p>{{this}}</p>
+  <input type="text" id="twote-text"></input>
+  <input type="text" id="twote-author"></input>
+  <input type="button" id="post" value=">"></input>
   </form>
 
   {{#each twotes}}

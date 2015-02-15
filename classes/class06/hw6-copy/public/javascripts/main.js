@@ -33,23 +33,18 @@ $form.submit(function(event) {
 });
 
 
-$(".submit").click(function (data,status) {
-  var label = data.author + data.text;
-  $form.attr('id',data._id);
-  $form.find('span').html(label);
-  $form.find('input.submit').val();
-
-    // var submitButton = this;
-    // var id = $(submitButton).parent().attr('id');
-    // var author = $(submitButton).parent('value');
-    // var text = $(submitButton).parent('value');
-    // console.log(text);
-    // $.post("/new-twote", {
-    //   author: author,
-    //   text: text,
-    // })
-    //   .done(onSuccess)
-    //   .error(onError);
+$("#post").click(function (data,status) {
+    var postButton = this;
+    var id = $(postButton).parent().attr('id');
+    var author = $('#twote-author').val();
+    var text = $('#twote-text').val();
+    console.log(text);
+    $.post("/new-twote", {
+      author: author,
+      text: text,
+    })
+      .done(onSuccess)
+      .error(onError);
 });
 
 
@@ -65,11 +60,11 @@ $(".edit-button").click(function() {
       id: id
     })
       .done(function(data, status) {
-        console.log("howdy");
+        // console.log("howdy");
         $(editButton).siblings("p").html('"'+newText+'"' + " - " + author);
       })
       .error(onError);
-      console.log("here");
+      // console.log("here");
 });
 
 $(".delete-button").click(function() {
