@@ -1,9 +1,8 @@
 var $form = $(this);
-var $currUser = $("#currUser");
-
 
 var onSuccess = function(data, status) {
-  $("#result").append(data);
+  $(data).append("#result");
+  console.log(data);
 };
 
 var onError = function(data, status) {
@@ -27,21 +26,21 @@ $form.submit(function(event) {
     text: text
   }
  
-  $.get("new-twote", formData)
+  $.get("/new-twote", formData)
     .done(onSuccess)
     .error(onError);
 });
 
 
-$("#post").click(function (data,status) {
-    var postButton = this;
-    var id = $(postButton).parent().attr('id');
+$("#new").click(function (data, status) {
+    console.log(data)
+    var newButton = this;
+    var id = $(newButton).parent().attr('id');
     var author = $('#twote-author').val();
     var text = $('#twote-text').val();
-    console.log(text);
     $.post("/new-twote", {
       author: author,
-      text: text,
+      text: text
     })
       .done(onSuccess)
       .error(onError);
