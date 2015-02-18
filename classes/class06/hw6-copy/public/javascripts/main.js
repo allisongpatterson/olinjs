@@ -2,7 +2,8 @@ var $form = $(this);
 
 var onSuccess = function(data, status) {
   $(data).append("#result");
-  console.log(data);
+  // $(newTwote).append("#result");
+  // console.log(data);
 };
 
 var onError = function(data, status) {
@@ -12,10 +13,6 @@ var onError = function(data, status) {
 
 $form.submit(function(event) {
   event.preventDefault();
-  // var $selForm = $(this);
-  // console.log($selForm);
-  // console.log(event.currentTarget);
-  // console.log(this);
 
   formData = $form.serialize();
 
@@ -26,22 +23,21 @@ $form.submit(function(event) {
     text: text
   }
  
-  $.get("/new-twote", formData)
+  $.get("/myTwotter", formData)
     .done(onSuccess)
     .error(onError);
 });
 
 
 $("#new").click(function (data, status) {
-    console.log(data)
     var newButton = this;
-    var id = $(newButton).parent().attr('id');
-    var author = $('#twote-author').val();
-    var text = $('#twote-text').val();
-    $.post("/new-twote", {
-      author: author,
-      text: text
-    })
+    console.log($(newButton));
+    var author = $(newButton).siblings('#twote-author').val();
+    var text = $(newButton).siblings('#twote-text').val();
+    var newTwote = {author: author, text: text};
+    console.log(newTwote);
+    // console.log(data);
+    $.post("/new-twote", newTwote)
       .done(onSuccess)
       .error(onError);
 });

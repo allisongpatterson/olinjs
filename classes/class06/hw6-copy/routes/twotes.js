@@ -12,6 +12,8 @@ twotes.new = function(req, res) {
   newTwote.save(function (err) {
     if (err) {
       console.log("Problem saving bob", err);
+    } else {console.log("howdy there")
+      // res.send(newTwote)
     }
   });
 };

@@ -1,0 +1,22 @@
+body {
+  padding-left: 11em;
+  font-family: Georgia, "Times New Roman",
+        Times, serif;
+  color: purple;
+  background-color: lightblue;
+}
+
+[id|=post-twote] {
+    background: yellow;
+    width:700px;
+}
+
+form {
+    background: white;
+    width: 500px;
+    background-width: 10px;
+    border: solid black;
+    padding: 25px;
+    padding-top: 15px;
+    margin-bottom: 25px;
+} 
