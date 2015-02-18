@@ -1,22 +1,25 @@
 body {
   padding-left: 11em;
-  font-family: Georgia, "Times New Roman",
-        Times, serif;
-  color: purple;
-  background-color: lightblue;
+  font-family: Arial;
+  color: black;
+  background-color: white;
 }
 
 [id|=post-twote] {
-    background: yellow;
+    background: lightgrey;
     width:700px;
 }
 
 form {
-    background: white;
+    background: lightgrey;
     width: 500px;
-    background-width: 10px;
-    border: solid black;
+    box-shadow: 0px 1px 2px #888888;
     padding: 25px;
     padding-top: 15px;
     margin-bottom: 25px;
 } 
+
+/*input {
+	position: absolute;
+	right: 800px;
+}*/
