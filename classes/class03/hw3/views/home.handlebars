@@ -1,10 +1,13 @@
-<h1>Hello Homepage</h1>
+<h1>CATS!</h1>
+
+<div id=nav></div>
 
 <body>
 {{#each cats}}
-  <h2>{{this.name}}:</h2>
+  <h2>{{this.name}}: {{this.id}}</h2>
   <ul>
     <li>{{this.age}}</li>
+    <li>{{this.colors}}</li>
   </ul>
 {{/each}}
 </body>

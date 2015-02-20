@@ -9,6 +9,7 @@ var exphbs  = require("express-handlebars");
 var mongoose = require("mongoose");
 
 var kittyRoutes = require("./routes/kitties");
+// var index = require("./routes/index");
 
 var app = express();
 
@@ -28,9 +29,9 @@ mongoose.connect(mongoURI);
 
 app.get("/", kittyRoutes.list);
 app.get("/cats", kittyRoutes.list);
-// app.get("/cats/new", kittyRoutes.new);
+app.get("/cats/new", kittyRoutes.new);
 // app.get("/cats/bycolor/:color", kittyRoutes.bycolor);
-// app.get("/cats/delete/old", kittyRoutes.delete);
+app.get("/cats/delete/old", kittyRoutes.delete);
 
 app.listen(PORT, function() {
   console.log("App running on port:", PORT);
