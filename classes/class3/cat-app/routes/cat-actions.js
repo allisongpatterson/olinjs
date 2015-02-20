@@ -22,9 +22,11 @@ cats.list = function (req, res) {
   .exec(function (err, cats) {
       if (err) {
         console.log("Problem saving " + name + ".");
-        else {res.render("home", cats)};
-    };
-  });
+      }
+        else { 
+          res.render("home", cats)};
+    }
+  );
 };
 
 //sort cats
@@ -36,9 +38,11 @@ cats.sort = function (req,res) {
     .exec(function (err, cats) {
       if (err) {
         console.log("Problem saving " + name + ".");
-        else {res.render("home", cats)};
-      };
-    });
+      }
+        else {
+          res.render("home", cats)};
+      }
+    );
 };
 
 // //delete cat

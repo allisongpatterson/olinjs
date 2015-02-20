@@ -1,11 +1,12 @@
 var path = require("path");
 
 var Twote = require(path.join(__dirname,"../models/twoteModel"));
+var User = require(path.join(__dirname,"../models/userModel"));
 
 var twotes = {};
 
 twotes.new = function(req, res) {
-  var author = "Allison";
+  var author = req.body.author;
   var text = req.body.text;
   var newTwote = new Twote({author: author, text: text});
   newTwote.save(function (err) {

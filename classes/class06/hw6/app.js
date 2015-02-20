@@ -30,7 +30,7 @@ app.get("/", function(req,res) {
   res.render("home");
 });
 
-app.get("/twotter", twoteRoutes.list);
+app.get("/myTwotter", twoteRoutes.list);
 
 app.post("/new-twote", twoteRoutes.new);
 

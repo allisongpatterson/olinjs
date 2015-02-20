@@ -1,16 +1,22 @@
 <h1>Twotter</h1>
 
 <body>
-  <form id="ajax-form">
-	<p>Twote</p>
-	<input type="text" value="Whee!"></input>
-	<input type="submit" class="submit" value=">"></input>
-	<p>{{this}}</p>
+  <div id="currUser"></div>
+
+  <form id="post-twote">
+  <p>Twote</p>
+  <input type="text" class="twote-text"></input>
+  <input type="text" class="twote-author"></input>
+  <input type="submit" class="submit" value=">"></input>
+  <p>{{this}}</p>
   </form>
 
   {{#each twotes}}
-    <id="{{_id}}">
-    <p>"{{text}}" -- {{author}}</p>
+<div id="result">
+    <form class="twote" id={{this._id}} method="POST">
+      <span>"{{this.text}}" - {{this.author}}</span>
+      <input type="button" class="edit" value="Edit">
+      <input type="submit" class="submit" value="Delete">
+    </form>
   {{/each}}
-
-  <div id="result"></div>
+</div>
